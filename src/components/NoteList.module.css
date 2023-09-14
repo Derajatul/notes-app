@@ -1,0 +1,12 @@
+.container{
+  max-width: 64rem;
+  margin: 0 auto 0 auto;
+  margin-bottom: 1.5rem;
+
+}
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+}
