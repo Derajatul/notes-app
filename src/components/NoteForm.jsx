@@ -2,7 +2,12 @@ import styles from './NoteForm.module.css'
 import { useState, useEffect } from 'react'
 
 const NoteForm = ({addNote}) => {
-  const [note, setNote] = useState({title: '',body: '',createdAt: new Date().toISOString()})
+  const [note, setNote] = useState({
+    id: 0,title: '',
+    body: '',
+    createdAt: new Date().toISOString(),
+    archive: false 
+  })
 
   const handleChange = (e) => {
     setNote({
@@ -14,7 +19,13 @@ const NoteForm = ({addNote}) => {
   const handleAddNote = (e) => {
     e.preventDefault()
     addNote(note)
-    setNote({title: '',body: '',createdAt: new Date().toISOString()})
+    setNote({
+      id: +new Date(), 
+      title: '',
+      body: '',
+      createdAt: new Date().toISOString(), 
+      archive: false 
+    })
   }
 
   useEffect(() => {
