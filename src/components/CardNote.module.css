@@ -6,6 +6,30 @@
   flex-direction: column;
   padding: 15px;
 }
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.button{
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  padding: 8px 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  
+}
+.delete{
+  color: #ff5f52;
+}
+.archive{
+  color: #fff263;
+}
+
+
 @media (min-width: 640px) {
   .container{
     width: 43%;

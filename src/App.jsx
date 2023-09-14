@@ -12,12 +12,16 @@ export default function App() {
   const addNote = (newNote) => {
     setNotes([...notes, newNote])
   }
+
+  const handleDelete = (noteId) => {
+    setNotes(notes.filter(note => noteId !== note.id))
+  }
   return (
     <>
       <Navbar />
       <main>
         <NoteForm addNote={addNote} />
-        <NoteList notes={notes} />
+        <NoteList notes={notes} onDelete={handleDelete} />
         <ArsipNoteList />
       </main>
     </>
