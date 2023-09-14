@@ -8,7 +8,8 @@ const NoteList = ({notes}) => {
       <h2>Catatan Aktif</h2>
       <div className={styles.list}>
       {notes.map(note => (
-        <CardNote 
+        <CardNote
+          key={note.title}
           title={note.title} 
           body={note.body} 
           createdAt={showFormattedDate(note.createdAt)}
