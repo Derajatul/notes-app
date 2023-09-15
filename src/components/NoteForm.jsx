@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 const NoteForm = ({addNote}) => {
   const [note, setNote] = useState({
-    id: 0,
+    id: +new Date(),
     title: '',
     body: '',
     createdAt: new Date().toISOString(),
@@ -35,7 +35,7 @@ const NoteForm = ({addNote}) => {
       <h2>Buat Catatan</h2>
       <span>sisa karakter</span>
       <form className={styles.form} onSubmit={handleAddNote}>
-        <input required name="title" maxLength="30" value={note.title} type="text" className={styles.title} placeholder=" Title" onChange={handleChange} />
+        <input required name="title" value={note.title} type="text" className={styles.title} placeholder=" Title" onChange={handleChange} />
         <textarea required name="body" value={note.body} className={styles.description} placeholder=" Description" onChange={handleChange} />
         <button className={styles.button} type="submit">Buat</button>
       </form>

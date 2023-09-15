@@ -1,5 +1,31 @@
-main {
-  text-align: center;
-  vertical-align: center;
-  line-height: 100vh
+*{
+  /* border: 1px solid red; */
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background-color: #111113;
+  color: white;
+}
+input, textarea {
+  
+  padding: 12px 0;
+  font-family: 'Inter', sans-serif;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #aaa;
+  font-weight: bold;
+}
+
+main{
+  max-width: 64rem;
+  padding: 0 1.5rem 0 1.5rem;
+  margin: 0 auto 0 auto;
 }
