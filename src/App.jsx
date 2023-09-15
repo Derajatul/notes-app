@@ -8,20 +8,30 @@ import {getInitialData} from './utils/index'
 
 export default function App() {
   const [notes, setNotes] = useState(getInitialData)
+  const [searchTerm, setSearchTerm] = useState('')
 
-  const addNote = (newNote) => {
+  const handleAddNote = (newNote) => {
     setNotes([...notes, newNote])
   }
 
+  
   const handleDelete = (noteId) => {
     setNotes(notes.filter(note => noteId !== note.id))
   }
+
+  const handleSearch = (search) => {
+    setSearchTerm(search)
+  }
+
+  const filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
   return (
     <>
-      <Navbar />
+      <Navbar onSearch={handleSearch} />
       <main>
-        <NoteForm addNote={addNote} />
-        <NoteList notes={notes} onDelete={handleDelete} />
+        <NoteForm addNote={handleAddNote} />
+        <NoteList notes={filteredNotes} onDelete={handleDelete} />
         <ArsipNoteList />
       </main>
     </>
