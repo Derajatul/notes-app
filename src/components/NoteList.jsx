@@ -19,7 +19,7 @@ const NoteList = ({notes, onDelete, onArchive}) => {
                 title={note.title} 
                 body={note.body} 
                 createdAt={showFormattedDate(note.createdAt)}
-                archive = {note.archive}
+                archive = {note.archived}
                 onDelete={onDelete}
                 onArchive={onArchive}
               />
@@ -39,7 +39,7 @@ const NoteList = ({notes, onDelete, onArchive}) => {
                 id={note.id}
                 title={note.title} 
                 body={note.body}
-                archive = {note.archive}
+                archive = {note.archived}
                 createdAt={showFormattedDate(note.createdAt)}
                 onDelete={onDelete}
                 onArchive={onArchive}
