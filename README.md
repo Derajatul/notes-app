@@ -1,4 +1,4 @@
-# Aplikasi Catatan Pribadi
+# Notes app
 
 Aplikasi Catatan Pribadi adalah sebuah aplikasi web sederhana yang memungkinkan Anda untuk menambahkan, menghapus, dan mencari catatan. Aplikasi ini dibuat menggunakan React dan memenuhi kriteria utama dan opsional yang telah ditentukan.
 
