@@ -8,10 +8,10 @@ const NoteList = ({notes, onDelete, onArchive}) => {
     <div className={styles.container}>
       <h2>Catatan Aktif</h2>
       <div className={styles.list}>
-        {notes.length <= 0 && <p>Tidak ada catatan</p>}
+        {notes.filter(note => !note.archived).length <= 0 && <p>Tidak ada catatan</p>}
         
         {notes.map((note) => {
-          return note.archived === false ? (
+          return !note.archived ? (
             <>
               <CardNote
                 key={note.id}

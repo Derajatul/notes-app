@@ -9,12 +9,22 @@ const NoteForm = ({addNote}) => {
     createdAt: new Date().toISOString(),
     archived: false 
   })
-
+  const [maxLength, setMaxLength] = useState(50)
   
-  const handleChange = (e) => {
+  const handleTitle = (e) => {
+    const titleInput = e.target.value
+    setMaxLength(50 - titleInput.length);
+    if(titleInput.length < 50){
+      setNote({
+        ...note,
+        title: titleInput
+      })  
+    }
+  }
+  const handleBody = (e) => {
     setNote({
-    ...note,
-    [e.target.name]: e.target.value
+      ...note,
+      body: e.target.value
     })
   }
 
@@ -33,10 +43,16 @@ const NoteForm = ({addNote}) => {
   return(
     <div className={styles.container}>
       <h2>Buat Catatan</h2>
-      <span>sisa karakter</span>
+      {maxLength <= 10 ? (
+        <p>sisa karakter <span  style={{color: "red"}}> {maxLength}</span></p>
+        
+      ) : (
+        <p>sisa karakter <span  style={{color: "green"}}> {maxLength}</span></p>
+       
+      )}
       <form className={styles.form} onSubmit={handleAddNote}>
-        <input required name="title" value={note.title} type="text" className={styles.title} placeholder=" Title" onChange={handleChange} />
-        <textarea required name="body" value={note.body} className={styles.description} placeholder=" Description" onChange={handleChange} />
+        <input required name="title" value={note.title} type="text" className={styles.title} placeholder=" Title" onChange={handleTitle} />
+        <textarea required name="body" value={note.body} className={styles.description} placeholder=" Description" onChange={handleBody} />
         <button className={styles.button} type="submit">Buat</button>
       </form>
     </div>
